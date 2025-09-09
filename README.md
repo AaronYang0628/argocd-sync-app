@@ -33,12 +33,15 @@ Please refer to the [release page](https://github.com/actions/checkout/releases/
     # Default: 'admin'
     argocd-user: 'admin'
 
-    # 
+    # ${{ secrets.ARGOCD_TOKEN }}
     argocd-token: 'AdQUx7gQLbzD74iF'
 
     # [Optional]
-    # Default: ''
+    # Default: '--insecure'
     insecure-option: '--insecure'
+
+    # [Optional]
+    sync-option: '--prune'
     # 
     # Default: ${{ github.repository }}
     application-yaml-path: 'sample/sample.nginx.app.yaml'
