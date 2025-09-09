@@ -42,7 +42,7 @@ runs:
 
     - name: sync-argoCD-application
       shell: bash
-      run: ${{ github.action_path }/src/entrypoint.sh
+      run: ${{ github.action_path }}/src/entrypoint.sh
       env:
         ARGOCD_SERVER: ${{ inputs.argocd-server }}
         ARGOCD_USER: ${{ inputs.argocd-user }}
