@@ -1,0 +1,48 @@
+name: 'ArgocdSync'
+description: 'Sync A Nginx ArgoCD app from the build artifacts'
+inputs:
+  argocd-server:
+    description: 'ArgoCD Server URL'
+    required: true
+  argocd-user:
+    description: 'ArgoCD Login User Name'
+    required: false
+    default: 'admin'
+  argocd-token:
+    description: 'ArgoCD Login Token'
+    required: true
+  application-yaml-path:
+    description: 'Application YAML File Path'
+    required: true
+  insecure-options:
+    description: 'Insecure options (e.g., --insecure)'
+    required: false
+    default: '--insecure'
+  sync-options:
+    description: 'Sync options (e.g., --prune, --force, --timeout 300)'
+    required: false
+    default: '--prune'
+
+runs:
+  using: 'composite'
+  steps:
+    - name: checkout-repository
+      uses: actions/checkout@v4
+      
+    - name: setup-argoCD-client-binary
+      shell: bash
+      run: |
+        curl -sSL -o argocd-linux-amd64 https://github.com/argoproj/argo-cd/releases/latest/download/argocd-linux-amd64
+        sudo install -m 555 argocd-linux-amd64 /usr/local/bin/argocd
+        rm argocd-linux-amd64
+        
+    - name: sync-argoCD-application
+      shell: bash
+      run: src/entrypoint.sh
+      env:
+        ARGOCD_SERVER: ${{ inputs.argocd-server }}
+        ARGOCD_USER: ${{ inputs.argocd-user }}
+        ARGOCD_TOKEN: ${{ inputs.argocd-token }}
+        APP_YAML_PATH: ${{ inputs.application-yaml-path }}
+        INSECURE_OPTIONS: ${{ inputs.insecure-options }}
+        SYNC_OPTIONS: ${{ inputs.sync-options }}
