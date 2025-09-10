@@ -1,5 +1,5 @@
-name: 'argocd-sync-app'
-description: 'Sync An ArgoCD app from the build artifacts'
+name: 'argocd-async-app'
+description: 'Sync an ArgoCD app from the build artifacts'
 inputs:
   argocd-server:
     description: 'ArgoCD Server URL'
