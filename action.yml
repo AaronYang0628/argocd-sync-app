@@ -1,4 +1,4 @@
-name: 'ArgocdSync'
+name: 'argocd-sync-nginx-app'
 description: 'Sync A Nginx ArgoCD app from the build artifacts'
 inputs:
   argocd-server:
