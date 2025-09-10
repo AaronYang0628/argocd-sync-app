@@ -36,13 +36,12 @@ runs:
         sudo install -m 555 argocd-linux-amd64 /usr/local/bin/argocd
         rm argocd-linux-amd64
 
-    - name: Make entrypoint script executable
+    - name: make-entrypoint-script-executable
       shell: bash
       run: chmod +x ${{ github.action_path }}/src/entrypoint.sh
 
     - name: sync-argoCD-application
       shell: bash
-      run: ${{ github.action_path }}/src/entrypoint.sh
       env:
         ARGOCD_SERVER: ${{ inputs.argocd-server }}
         ARGOCD_USER: ${{ inputs.argocd-user }}
@@ -50,6 +49,7 @@ runs:
         APP_YAML_PATH: ${{ inputs.application-yaml-path }}
         INSECURE_OPTIONS: ${{ inputs.insecure-options }}
         SYNC_OPTIONS: ${{ inputs.sync-options }}
+      run: ${{ github.action_path }}/src/entrypoint.sh
 branding:
   icon: 'refresh-ccw'
   color: 'blue'

@@ -2,12 +2,12 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: sample-nginx-app
-  namespace: application
+  namespace: argocd
 spec:
   project: default
   destination:
     server: https://kubernetes.default.svc
-    namespace: default
+    namespace: application
   syncPolicy:
     automated:
       prune: true
