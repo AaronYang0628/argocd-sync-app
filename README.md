@@ -1,25 +1,21 @@
-
 ### Note
 
-Thank you for your interest in this GitHub action, however, right now we are not taking contributions. 
+Thank you for your interest in the `argocd-sync-nginx-app` GitHub Action!
 
-We continue to focus our resources on strategic areas that help our customers be successful while making developers' lives easier. While GitHub Actions remains a key part of this vision, we are allocating resources towards other areas of Actions and are not taking contributions to this repository at this time. The GitHub public roadmap is the best place to follow along for any updates on features we’re working on and what stage they’re in.
+This action helps you automatically sync an Nginx application to ArgoCD using build artifacts and a provided application YAML file. It is designed to simplify CI/CD workflows for Kubernetes deployments managed by ArgoCD.
 
-We are taking the following steps to better direct requests related to GitHub Actions, including:
+Currently, we are not accepting external contributions to this repository. Our team is focusing on maintaining stability and security for users. You can follow updates and new features on the GitHub public roadmap.
 
-1. We will be directing questions and support requests to our [Community Discussions area](https://github.com/orgs/community/discussions/categories/actions)
+If you have questions or need support:
+1. Please use our [Community Discussions area](https://github.com/orgs/community/discussions/categories/actions) for general questions and support.
+2. High priority bugs can be reported via Community Discussions or to our support team: https://support.github.com/contact/bug-report.
+3. For security issues, please refer to our [SECURITY.md](SECURITY.md).
 
-2. High Priority bugs can be reported through Community Discussions or you can report these to our support team https://support.github.com/contact/bug-report.
-
-3. Security Issues should be handled as per our [security.md](security.md)
-
-We will still provide security updates for this project and fix major breaking changes during this time.
-
-You are welcome to still raise bugs in this repo.
+We will continue to provide security updates and fix major breaking changes. Bug reports are always welcome.
 
 ### What's new
 
-Please refer to the [release page](https://github.com/actions/checkout/releases/latest) for the latest release notes.
+Please refer to the [release page](https://github.com/aaronyang0628/argocd-sync-nginx-app/releases/latest) for
 
 ### Usage
 <!-- start usage -->
@@ -27,23 +23,23 @@ Please refer to the [release page](https://github.com/actions/checkout/releases/
 - uses: aaronyang0628/argocd-sync-nginx-app@v1.3
   with:
     # 
+    # Required: ArgoCD server address (with port)
     argocd-server: '192.168.58.2:30443'
 
-    # [Optional] 
-    # Default: 'admin'
+    # Optional: ArgoCD username, default is 'admin'
     argocd-user: 'admin'
 
+    # Required: ArgoCD authentication token, recommended to use secrets
     # ${{ secrets.ARGOCD_TOKEN }}
     argocd-token: 'AdQUx7gQLbzD74iF'
 
-    # [Optional]
-    # Default: '--insecure'
+    # Optional: Extra options for connecting to ArgoCD, default is '--insecure'
     insecure-option: '--insecure'
 
-    # [Optional]
-    sync-option: '--prune'
-    # 
-    # Default: ${{ github.repository }}
+    # Optional: Options for syncing the application, default is '--prune --force'
+    sync-option: '--prune --force'
+
+    # Required: Path to the application YAML file
     application-yaml-path: 'sample/sample.nginx.app.yaml'
     
 ```
