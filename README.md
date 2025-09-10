@@ -20,7 +20,7 @@ Please refer to the [release page](https://github.com/aaronyang0628/argocd-sync-
 ### Usage
 <!-- start usage -->
 ```yaml
-- uses: aaronyang0628/argocd-sync-app@v1.3
+- uses: aaronyang0628/argocd-sync-app@v1.5
   with:
     # 
     # Required: ArgoCD server address (with port)
