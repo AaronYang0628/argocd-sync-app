@@ -24,7 +24,7 @@ Please refer to the [release page](https://github.com/actions/checkout/releases/
 ### Usage
 <!-- start usage -->
 ```yaml
-- uses: aaronyang0628/argocd-sync-nginx-app@v1
+- uses: aaronyang0628/argocd-sync-nginx-app@v1.3
   with:
     # 
     argocd-server: '192.168.58.2:30443'
