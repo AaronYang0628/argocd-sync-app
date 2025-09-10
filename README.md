@@ -1,8 +1,8 @@
 ### Note
 
-Thank you for your interest in the `argocd-sync-nginx-app` GitHub Action!
+Thank you for your interest in the `argocd-sync-app` GitHub Action!
 
-This action helps you automatically sync an Nginx application to ArgoCD using build artifacts and a provided application YAML file. It is designed to simplify CI/CD workflows for Kubernetes deployments managed by ArgoCD.
+This action helps you automatically sync an application to ArgoCD using build artifacts and a provided application YAML file. It is designed to simplify CI/CD workflows for Kubernetes deployments managed by ArgoCD.
 
 Currently, we are not accepting external contributions to this repository. Our team is focusing on maintaining stability and security for users. You can follow updates and new features on the GitHub public roadmap.
 
@@ -15,12 +15,12 @@ We will continue to provide security updates and fix major breaking changes. Bug
 
 ### What's new
 
-Please refer to the [release page](https://github.com/aaronyang0628/argocd-sync-nginx-app/releases/latest) for
+Please refer to the [release page](https://github.com/aaronyang0628/argocd-sync-app/releases/latest) for
 
 ### Usage
 <!-- start usage -->
 ```yaml
-- uses: aaronyang0628/argocd-sync-nginx-app@v1.3
+- uses: aaronyang0628/argocd-sync-app@v1.3
   with:
     # 
     # Required: ArgoCD server address (with port)
