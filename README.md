@@ -1,6 +1,6 @@
 ### Note
 
-Thank you for your interest in the `argocd-sync-app` GitHub Action!
+Thank you for your interest in the `argocd-async-app` GitHub Action!
 
 This action helps you automatically sync an application to ArgoCD using build artifacts and a provided application YAML file. It is designed to simplify CI/CD workflows for Kubernetes deployments managed by ArgoCD.
 
@@ -20,7 +20,7 @@ Please refer to the [release page](https://github.com/aaronyang0628/argocd-sync-
 ### Usage
 <!-- start usage -->
 ```yaml
-- uses: aaronyang0628/argocd-sync-app@v1.5
+- uses: aaronyang0628/argocd-async-app@v1.5
   with:
     # 
     # Required: ArgoCD server address (with port)
