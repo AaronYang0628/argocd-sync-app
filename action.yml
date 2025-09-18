@@ -1,5 +1,8 @@
-name: 'argocd-async-app'
-description: 'Sync an ArgoCD app from the build artifacts'
+name: 'apply-and-sync-argocd'
+description: 'Apply and Sync an ArgoCD app from the source'
+branding:
+  icon: 'refresh-ccw'
+  color: 'blue'
 inputs:
   argocd-server:
     description: 'ArgoCD Server URL'
@@ -26,21 +29,21 @@ inputs:
 runs:
   using: 'composite'
   steps:
-    - name: checkout-repository
+    - name: Checkout Repository
       uses: actions/checkout@v4
       
-    - name: setup-argoCD-client-binary
+    - name: Setup ArgoCD Client Binary
       shell: bash
       run: |
         curl -sSL -o argocd-linux-amd64 https://files.m.daocloud.io/github.com/argoproj/argo-cd/releases/latest/download/argocd-linux-amd64
         sudo install -m 555 argocd-linux-amd64 /usr/local/bin/argocd
         rm argocd-linux-amd64
 
-    - name: make-entrypoint-script-executable
+    - name: Make Entrypoint Script Executable
       shell: bash
       run: chmod +x ${{ github.action_path }}/src/entrypoint.sh
 
-    - name: sync-argoCD-application
+    - name: Sync ArgoCD Application
       shell: bash
       env:
         ARGOCD_SERVER: ${{ inputs.argocd-server }}
@@ -50,6 +53,4 @@ runs:
         INSECURE_OPTIONS: ${{ inputs.insecure-options }}
         SYNC_OPTIONS: ${{ inputs.sync-options }}
       run: ${{ github.action_path }}/src/entrypoint.sh
-branding:
-  icon: 'refresh-ccw'
-  color: 'blue'
+

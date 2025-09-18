@@ -1,26 +1,27 @@
 ### Note
 
-Thank you for your interest in the `argocd-async-app` GitHub Action!
+Thank you for your interest in the `apply-and-sync-argocd` GitHub Action!
 
 This action helps you automatically sync an application to ArgoCD using build artifacts and a provided application YAML file. It is designed to simplify CI/CD workflows for Kubernetes deployments managed by ArgoCD.
 
 Currently, we are not accepting external contributions to this repository. Our team is focusing on maintaining stability and security for users. You can follow updates and new features on the GitHub public roadmap.
 
 If you have questions or need support:
-1. Please use our [Community Discussions area](https://github.com/orgs/community/discussions/categories/actions) for general questions and support.
-2. High priority bugs can be reported via Community Discussions or to our support team: https://support.github.com/contact/bug-report.
-3. For security issues, please refer to our [SECURITY.md](SECURITY.md).
+1. Please use the official [Community Discussions area](https://github.com/orgs/community/discussions/categories/actions) for general questions and support.
+2. For security issues, please refer to our [SECURITY.md](SECURITY.md).
 
-We will continue to provide security updates and fix major breaking changes. Bug reports are always welcome.
+Hope I can provide security updates and fix major breaking changes. 
+
+Bug reports are always welcome.
 
 ### What's new
 
-Please refer to the [release page](https://github.com/aaronyang0628/argocd-sync-app/releases/latest) for
+Please refer to the [release page](https://github.com/AaronYang0628/apply-and-sync-argocd/releases/latest) for
 
 ### Usage
 <!-- start usage -->
 ```yaml
-- uses: aaronyang0628/argocd-async-app@v1.5
+- uses: AaronYang0628/apply-and-sync-argocd@v1.0.6
   with:
     # 
     # Required: ArgoCD server address (with port)
